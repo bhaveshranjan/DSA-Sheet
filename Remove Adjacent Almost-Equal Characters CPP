@@ -1,0 +1,24 @@
+//Biweekly contest 9|December|2023
+Que 2 
+
+
+
+class Solution {
+public:
+    int removeAlmostEqualCharacters(string word) {
+        int n= word.size();
+        int c1,c2;
+        int sum =0;
+        for (int i=0;i<n-1;i++)
+        {
+            c1 = (int)word[i];
+            c2 = (int)word[i+1];
+            if(c1+1 == c2 || c1-1 == c2||c1==c2)
+            {
+                sum++;
+                i++;
+            }
+        }
+        return sum;
+    }
+};
