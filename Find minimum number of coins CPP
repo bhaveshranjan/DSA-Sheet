@@ -1,0 +1,29 @@
+Optimal Solution
+
+class Solution{
+
+	public:
+	int helper(int idx,int M,int V,int coins[],vector<vector<int>> &dp){
+	    if(idx==M and V!=0) return 1e9;
+	    if(V==0) return 0;
+	    if(dp[idx][V]!=-1)return dp[idx][V];
+	    int take=1e9,nottake;
+	    if(coins[idx]<=V)
+	    take=1+helper(idx,M,V-coins[idx],coins,dp);
+	    
+	    nottake=helper(idx+1,M,V,coins,dp);
+	    return dp[idx][V]=min(take,nottake);
+	}
+	
+	int minCoins(int coins[], int M, int V) 
+	{ 
+	    // Your code goes here
+	    vector<vector<int>> dp(M,vector<int>(V+1,-1));
+	    
+	    int ans=helper(0,M,V,coins,dp);
+	    if(ans>=1e9) return -1;
+	    else return ans;
+	    
+	} 
+	  
+};
