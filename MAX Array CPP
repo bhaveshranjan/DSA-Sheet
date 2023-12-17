@@ -1,0 +1,32 @@
+Optimal Solution
+
+class Solution {
+	public:
+	int minOperations(vector<int> a, int N) {
+	    unordered_map<int,int>mp;
+	    int maxele = a[0];
+	    for(int i=0;i<N;i++){
+	        mp[a[i]]++;
+	        maxele=max(maxele,a[i]);
+	    }
+	    int size =mp.size();
+	    int store;
+	    int count=0;
+	    int max_count=0;
+	    if(mp[maxele]==1)
+	    return 0;
+	    else{
+	        store = mp[maxele]-1;
+	        for(int i=0;i<N;i++)
+	        {
+	            if(a[i]==maxele)
+	            count++;
+	            else
+	            count=0;
+	            
+	            max_count=max(count,max_count);
+	        }
+	        return store-max_count+1;
+	    }
+	}
+};
