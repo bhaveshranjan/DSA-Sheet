@@ -1,0 +1,24 @@
+Optimal Solution
+
+class Solution {
+  public:
+    int maxHappy(int n, vector<int> &bags, int m, vector<int> &requirement) {
+        // code here
+        int output=0;
+        sort(bags.begin(),bags.end());
+        sort(requirement.begin(),requirement.end());
+        int i=0;
+        int j=0;
+        while(i<n && j<m)
+            {
+                if(bags[i]>=requirement[j]) {
+                    output++;
+                    i++;
+                    j++;
+                }
+                else i++;
+                
+            }
+        return output; 
+    }
+};
