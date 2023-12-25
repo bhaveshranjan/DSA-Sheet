@@ -1,0 +1,18 @@
+Optimal Solution
+
+void SortedStack :: sort()
+{
+   //Your code here
+   vector <int> temp;
+   while(! s.empty()){
+       temp.push_back(s.top());
+       s.pop();
+   }
+
+// here I have used std:: along with sort because my function name is also sort   while gfg compiler called it twice and recognize that it is void type function and this one having parameter so it will throw the error
+   std::sort(temp.begin(),temp.end());
+   for(int i=0;i<temp.size();i++)
+   {
+       s.push(temp[i]);
+   }
+}
