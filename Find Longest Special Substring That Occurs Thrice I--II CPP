@@ -1,0 +1,43 @@
+Q2: Constraints 3 <= s.length <= 50
+s consists of only lowercase English letters.
+
+Q3: Constraints  3 <= s.length <= 5 * 105
+s consists of only lowercase English letters.
+
+class Solution {
+public:
+    int maximumLength(string s) {
+        int ans = 0;
+        vector<vector<int>> freq(26);
+
+        for (int i = 0; i < 26; i++) {
+            freq[i] = vector<int>();
+        }
+
+        for (int i = 0; i < s.length(); i++) {
+            int j = i;
+            while (j < s.length() && s[j] == s[i]) {
+                j++;
+            }
+            freq[s[i] - 'a'].push_back(j - i);
+            i = j - 1;
+        }
+
+        for (auto& x : freq) {
+            if (x.empty()) continue;
+            sort(x.begin(), x.end());
+            int sz = x.size();
+            ans = max(ans, x[sz - 1] - 2);
+            if (sz > 1) {
+                ans = max(ans, min(x[sz - 1] - 1, x[sz - 2]));
+            }
+            if (sz > 2) {
+                ans = max(ans, x[sz - 3]);
+            }
+        }
+
+        if (ans == 0) ans = -1;
+        return ans;
+        
+    }
+};
