@@ -18,7 +18,7 @@ public:
             if (needle[j] == needle[i]) {
                 j++;
             }
-            
+        
             pi[i] = j;
         }
         j = 0;
