@@ -1,6 +1,5 @@
 Q1
 
-
 class Solution {
 public:
     int minimumCost(vector<int>& nums) {
