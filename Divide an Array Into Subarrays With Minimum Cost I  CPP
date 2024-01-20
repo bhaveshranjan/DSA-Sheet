@@ -1,0 +1,14 @@
+Q1
+
+
+class Solution {
+public:
+    int minimumCost(vector<int>& nums) {
+        int cnt =0;
+        cnt+=nums[0];
+        sort(nums.begin()+1,nums.end());
+        cnt+=nums[1];
+        cnt+=nums[2];
+        return cnt;
+    }
+};
