@@ -1,0 +1,21 @@
+Q2
+
+class Solution {
+  public:
+    int minimizeArrayScore(int n, vector<int> &arr) {
+        // code here
+        sort(arr.begin(),arr.end());
+        int i=0,j=n;
+        int maxi= INT_MIN;
+        
+        for(int x=0;x<n/2;x++)
+        {
+            int sum = arr[i]+arr[j-1];
+            maxi=max(maxi,sum);
+            i++;
+            j--;
+        }
+        return maxi;
+        
+    }
+};
