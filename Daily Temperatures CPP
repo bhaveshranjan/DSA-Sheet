@@ -10,7 +10,6 @@ public:
             }
             stack.push(i);
         }
-
         return results;
     }
 };
