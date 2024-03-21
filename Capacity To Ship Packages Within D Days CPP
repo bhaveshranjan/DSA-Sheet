@@ -1,6 +1,7 @@
 class Solution {
 public:
 
+
     int isPossible(vector<int>& weights, int days, int mid){
         int dayCount = 1 ;
         int shippedWeight = 0 ;
